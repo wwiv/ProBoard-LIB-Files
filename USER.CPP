@@ -119,7 +119,7 @@ _User::fromRa( RA2_UsersBBS &u , RA2_UsersXiBBS &uxi , RA2_UsersPbBBS &upb)
 
    RAtime2PBtime(u.LastTime , lastTime );
 
-   RAdate2PBdate(u.LastDate , lastDate );
+   //RAdate2PBdate(u.LastDate , lastDate );
    RAdate2PBdate(u.FirstDate, firstDate);
    RAdate2PBdate(u.BirthDate, birthDate);
    RAdate2PBdate(u.SubDate  , expDate  );
