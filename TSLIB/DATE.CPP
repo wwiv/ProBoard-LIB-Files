@@ -104,13 +104,30 @@ char *Date::l_months[12]  = { "January","February","March","April","May","June",
 void
 Date::today()
 {
-   time_t tm_val = time(NULL);
+   /*time_t tm_val = time(NULL);
 
    struct tm *tm_struct = localtime(&tm_val);
 
    _d = byte(tm_struct->tm_mday);
    _m = byte(tm_struct->tm_mon + 1);
-   _y = byte(tm_struct->tm_year);
+   _y = byte(tm_struct->tm_year); */
+
+	time_t rawtime;
+	struct tm* timeinfo;
+	char buffer[80];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+
+	char today[80];
+
+	strftime(today, 80, "%m/%d/%Y", timeinfo);
+
+	char tdyfmt[80];
+
+	strftime(tdyfmt, 80, "%Y.%m%d", timeinfo);
+
+
 }
 
 void
