@@ -1,6 +1,8 @@
 
 % MODEL MEM_MOD
 
+IDEAL 
+
 STRUC state
       task_ss dw 0
       task_sp dw 0

@@ -1,16 +1,27 @@
 ## Makefile for TwinSoftLib 1.xx
 
-MODEL = LARGE
+# Set DIR_BC_BIN to your BorlandC/BIN dir
+#
+MODEL	= LARGE
+EXT   	= L
 
-OBJS = date.obj     dirscan.obj  find.obj     dstring.obj  bitarray.obj \
-       sound.obj    misc.obj     crc16.obj    crc32.obj    fuzzy.obj    \
-       form.obj     msdos.obj    fname.obj    file.obj     inivar.obj   dirfunc.obj  \
+OBJS = date.obj dirscan.obj find.obj dstring.obj bitarray.obj \
+       sound.obj misc.obj crc16.obj crc32.obj fuzzy.obj \
+       form.obj msdos.obj fname.obj file.obj inivar.obj dirfunc.obj \
        copyfile.obj
 
-TSLIB = 1
+TSLIB 	= 1
+AFLAGS	= /o /mx /dMEM_MOD=$(MODEL)
+
+.cpp.obj:
+       $(CC) @..\mc.cfg $(CPPFLAGS) /c $&.cpp
+.c.obj:
+       $(CC) @..\mc.cfg $(CFLAGS) /c $&.c
+
 
 tslib_$(EXT).lib: $(OBJS)
- @erase $@
- @$(DIR_BC_BIN)\tlib $@ /c +$(OBJS)
- @copy $@ $(DIR_TSLIB_LIB)
- @erase $@
+   -erase $@
+   &tlib $@ +$?
+   -copy $@ $(OUT)
+   -erase $@
+

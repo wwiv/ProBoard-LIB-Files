@@ -282,8 +282,8 @@ void
 String::del(int pos,int l)
 {
    String tmp;
-
-   for(int i=0;i<pos;i++) tmp << s[i];
+   int i;
+   for(i=0;i<pos;i++) tmp << s[i];
 
    if(l != 0)
       for(i=pos+l;i<len();i++) tmp << s[i];
@@ -295,8 +295,8 @@ void
 String::insert(int pos,const char *str)
 {
    String tmp;
-
-   for(int i=0;i<pos;i++)     tmp << (char)((i<len()) ? s[i] : ' ');
+   int i;
+   for(i=0;i<pos;i++)     tmp << (char)((i<len()) ? s[i] : ' ');
    for(i=0;i<strlen(str);i++) tmp << str[i];
    for(i=pos;i<len();i++)     tmp << s[i];
 
@@ -468,8 +468,8 @@ String::replace(const char *search,const char *replace,bool sens,int maxcount)
    int search_len = strlen(search);
    int l = len() - search_len + 1;
    String result;
-
-   for(int i = 0; i < l; i++)
+   int i;
+   for(i = 0; i < l; i++)
    {
       if(   ( sens && !memcmp (&s[i] , search , search_len))
          || (!sens && !memicmp(&s[i] , search , search_len))

@@ -61,10 +61,10 @@ endif
            mov   cx,[attr]
            mov   ah,4fh
            int   21h
-           jc    @@error
+           jc    @@error2
 
            xor   ax,ax
-@@error:   pop   ds
+@@error2:   pop   ds
            pop   bp
            ret
 ENDP _f_next

@@ -1,6 +1,8 @@
 
 % MODEL MEM_MOD
 
+IDEAL 
+
 PUBLIC _msdos_error
 PUBLIC _msdos_open
 PUBLIC _msdos_create

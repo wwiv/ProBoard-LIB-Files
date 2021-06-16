@@ -29,7 +29,9 @@
   typedef          short sword;
   typedef unsigned long  dword;
   typedef          long  sdword;
+#if __BORLANDC__ < 0x0500  
   typedef unsigned char  bool;
+#endif  
 #endif
 
 
@@ -204,17 +206,19 @@ dword crc32   (const char *);
 dword upcrc32 (const char *);
 dword crc32   (const void *,unsigned);
 
+
 void  sound(word freq);
 void  stopsound();
 void  soundclick();
 
 extern "C"
    {
+
       /*** Constants for File::seek() ***/
 
-      const seek_set           = 0;
-      const seek_cur           = 1;
-      const seek_end           = 2;
+      const int seek_set           = 0;
+      const int seek_cur           = 1;
+      const int seek_end           = 2;
    }
 
 #ifndef PB_SDK

@@ -194,7 +194,8 @@ File::read(void *p,word size)
 
    if(textMode())
    {
-      for(word i=0;i<size;i++)
+      word i;
+      for(i=0;i<size;i++)
       {
          int c = readByte();
 
@@ -317,7 +318,8 @@ File::write(const void *p,word size)
 
    if(textMode())
    {
-      for(word i=0;i<size;i++)
+      word i;
+      for(i=0;i<size;i++)
          if(!writeByte(*((byte *)p)++)) break;
 
       return i;
@@ -666,8 +668,8 @@ bool
 File::readLine(char *s,int max)
 {
    if(!textMode()) return FALSE;
-
-   for(int i=0;i<max;)
+   int i;
+   for(i=0;i<max;)
    {
       int c = readByte();
 

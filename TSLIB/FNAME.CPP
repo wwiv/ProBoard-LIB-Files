@@ -41,7 +41,8 @@ void
 FileName::stripPath()
 {
    int l=len();
-   for(int i=l-1;i>=0;i--)
+   int i;
+   for(i=l-1;i>=0;i--)
    {
       if(s[i]=='\\' || s[i]=='/' || s[i]==':') break;
    }
@@ -151,7 +152,8 @@ FileName::fit(int size)
         pos += 4;
         while(p.len() > size)
         {
-            for(int i = 1; p[pos + i] != '\\' && p[pos + i] != 0; i++);
+            int i;
+            for(i = 1; p[pos + i] != '\\' && p[pos + i] != 0; i++);
 
             if(p[pos + i] == 0)
                 break;

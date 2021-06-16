@@ -2,13 +2,12 @@
 template <class T>
 class LinkedListObject
    {
-      friend class LinkedList<T>;
+   public:
 
       T data;
 
       LinkedListObject *next,
                        *prev;
-   public:
       LinkedListObject(T& d) : data(d)
          {
             next = prev = NULL;
@@ -18,10 +17,10 @@ class LinkedListObject
 template <class T>
 class LinkedList
    {
+   public:
       LinkedListObject<T> *last    ,
                           *current ;
 
-   public:
       LinkedList();
      ~LinkedList()
          {
@@ -201,8 +200,8 @@ LinkedList<T>::get(int recno)
       return dummy;
 
    LinkedListObject<T> *p = last->next;
-
-   for(int i=0 ; i<recno ; i++)
+   int i;
+   for(i=0 ; i<recno ; i++)
    {
       p = p->next;
 

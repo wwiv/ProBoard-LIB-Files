@@ -1,5 +1,7 @@
 % MODEL MEM_MOD
 
+IDEAL
+
   CODESEG
 
 public _crc
