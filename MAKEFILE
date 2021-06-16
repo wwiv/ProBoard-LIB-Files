@@ -1,9 +1,8 @@
 MODEL = LARGE
-EXT   	= L
 TSLIB = 1
 PBLIB = 1
 
-OBJS = pb_lib.obj lang.obj user.obj
+PBLIB_OBJS = pb_lib.obj lang.obj user.obj
 AFLAGS	= /o /mx /dMEM_MOD=$(MODEL)
 
 .cpp.obj:
@@ -11,10 +10,8 @@ AFLAGS	= /o /mx /dMEM_MOD=$(MODEL)
 .c.obj:
        $(CC) @mc.cfg $(CFLAGS) /c $&.c
 
-pblib_$(EXT).lib : $(OBJS)
+PBLIB_$(EXT).LIB : $(PBLIB_OBJS)
  -erase $@
  &tlib $@ +$?
- copy $@ $(OUT)
- #-erase $@
-
-$(OBJS) : pb_lib.cpp pb_lib.hpp
+ 
+all: PBLIB_$(EXT).LIB
